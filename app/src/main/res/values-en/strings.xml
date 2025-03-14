@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mobile1Project</string>
+    <string name="logo_description">ULSA Logo</string>
+    <string name="email_label">Email</string>
+    <string name="password_label">Password</string>
+    <string name="toggle_password_visibility">Show or hide password</string>
+    <string name="login_button">Log in</string>
+</resources>

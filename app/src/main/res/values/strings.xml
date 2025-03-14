@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Mobile1Project</string>
+        <string name="app_name">Mobile1Project</string>
+        <string name="logo_description">Logo ULSA</string>
+        <string name="email_label">Correo electrónico</string>
+        <string name="password_label">Contraseña</string>
+        <string name="toggle_password_visibility">Mostrar u ocultar contraseña</string>
+        <string name="login_button">Iniciar sesión</string>
 </resources>
