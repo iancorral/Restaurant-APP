@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="weight_label">Weight (kg)</string>
+    <string name="height_label">Height (m)</string>
+    <string name="calculate_button">Calculate BMI</string>
+    <string name="bmi_result">Your BMI is: %1$.2f</string>
+    <string name="bmi_normal">The patient is at a healthy weight</string>
+    <string name="bmi_not_normal">The patient is NOT at a healthy weight</string>
+    <string name="error_invalid_input">Please enter valid values for weight and height</string>
+</resources>
