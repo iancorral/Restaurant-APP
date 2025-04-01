@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="logo_descript">Termometer Logo</string>
+    <string name="celsius_label">Temperature in Celsius</string>
+    <string name="convert_button">Convert</string>
+    <string name="fahrenheit_result">%.2f °F</string>
+    <string name="error_invalid_inp">Invalid input. Please enter a number.</string>
+</resources>

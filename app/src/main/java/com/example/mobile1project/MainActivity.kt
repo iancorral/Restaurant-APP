@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import com.example.mobile1project.imc.views.IMCScreen
+import com.example.mobile1project.temp.views.TempScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,7 +14,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MaterialTheme {
                 Surface(modifier = androidx.compose.ui.Modifier.fillMaxSize()) {
-                    IMCScreen()
+                    TempScreen()
                 }
             }
         }
