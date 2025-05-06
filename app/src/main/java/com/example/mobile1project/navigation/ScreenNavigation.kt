@@ -10,8 +10,9 @@ sealed class ScreenNavigation(val route: String, val label: String, val icon: Im
     object SecondPartial : ScreenNavigation("SecondPartialRoute", "Parcial 2", Icons.Default.Folder)
     object ThirdPartial : ScreenNavigation("ThirdPartialRoute", "Parcial 3", Icons.Default.Folder)
 
-    // Estas no van en la barra, pero sí en el navController
+    // Rutas no visibles en la barra
     object Imc : ScreenNavigation("ImcRoute", "IMC", Icons.Default.Favorite)
     object Sum : ScreenNavigation("SumRoute", "Suma", Icons.Default.Add)
     object Temp : ScreenNavigation("TempRoute", "Temperatura", Icons.Default.Thermostat)
+    object StudentList : ScreenNavigation("StudentListRoute", "Lista de Estudiantes", Icons.Default.Person)
 }
