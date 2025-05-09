@@ -2,12 +2,10 @@ package com.example.mobile1project.navigation
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.*
-import androidx.navigation.compose.rememberNavController
 import com.example.mobile1project.ids.IdsView
 import com.example.mobile1project.ids.imc.views.IMCScreen
 import com.example.mobile1project.firstpartial.FirstPartialView
@@ -15,6 +13,9 @@ import com.example.mobile1project.ids.sum.views.SumView
 import com.example.mobile1project.ids.temp.views.TempScreen
 import com.example.mobile1project.secondpartial.SecondPartialView
 import com.example.mobile1project.thirdpartial.ThirdPartialView
+import com.example.mobile1project.ids.student.views.StudentListView
+import com.example.mobile1project.ids.student.viewmodels.StudentViewModel
+import com.example.mobile1project.ids.student.views.StudentListView
 
 @Composable
 fun TabBarNavigationView(navController: NavHostController = rememberNavController()) {
@@ -59,10 +60,14 @@ fun TabBarNavigationView(navController: NavHostController = rememberNavControlle
             composable(ScreenNavigation.Ids.route) { IdsView(navController) }
             composable(ScreenNavigation.FirstPartial.route) { FirstPartialView() }
             composable(ScreenNavigation.SecondPartial.route) { SecondPartialView() }
-            composable(ScreenNavigation.ThirdPartial.route) { ThirdPartialView() }
+            composable(ScreenNavigation.ThirdPartial.route) { ThirdPartialView(navController) }
             composable(ScreenNavigation.Imc.route) { IMCScreen() }
             composable(ScreenNavigation.Sum.route) { SumView() }
             composable(ScreenNavigation.Temp.route) { TempScreen() }
+            composable(ScreenNavigation.StudentList.route) {
+                val viewModel = StudentViewModel()
+                StudentListView(viewModel = viewModel)
+            }
         }
     }
 }
