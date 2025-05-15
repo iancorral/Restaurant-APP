@@ -1,6 +1,8 @@
 package com.example.mobile1project.navigation
 
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -15,7 +17,7 @@ import com.example.mobile1project.secondpartial.SecondPartialView
 import com.example.mobile1project.thirdpartial.ThirdPartialView
 import com.example.mobile1project.ids.student.views.StudentListView
 import com.example.mobile1project.ids.student.viewmodels.StudentViewModel
-import com.example.mobile1project.ids.student.views.StudentListView
+import com.example.mobile1project.ids.location.views.LocationListScreen
 
 @Composable
 fun TabBarNavigationView(navController: NavHostController = rememberNavController()) {
@@ -23,7 +25,7 @@ fun TabBarNavigationView(navController: NavHostController = rememberNavControlle
         ScreenNavigation.Ids,
         ScreenNavigation.FirstPartial,
         ScreenNavigation.SecondPartial,
-        ScreenNavigation.ThirdPartial
+        ScreenNavigation.ThirdPartial,
     )
 
     Scaffold(
@@ -64,9 +66,8 @@ fun TabBarNavigationView(navController: NavHostController = rememberNavControlle
             composable(ScreenNavigation.Imc.route) { IMCScreen() }
             composable(ScreenNavigation.Sum.route) { SumView() }
             composable(ScreenNavigation.Temp.route) { TempScreen() }
-            composable(ScreenNavigation.StudentList.route) {
-                val viewModel = StudentViewModel()
-                StudentListView(viewModel = viewModel)
+            composable(ScreenNavigation.StudentList.route) { StudentListView(viewModel = StudentViewModel()) }
+            composable(ScreenNavigation.LocationList.route) {LocationListScreen()
             }
         }
     }
