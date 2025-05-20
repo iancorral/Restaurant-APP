@@ -42,6 +42,14 @@ fun ThirdPartialView(navController: NavController) {
         }) {
             Text("Ver Ubicaciones")
         }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Button(onClick = {
+            navController.navigate(ScreenNavigation.ExamenList.route)
+        }) {
+            Text("Mostrar Estudiantes")
+        }
     }
 }
 

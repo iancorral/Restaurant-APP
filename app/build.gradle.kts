@@ -39,11 +39,18 @@ android {
     }
 }
 
+configurations.all {
+    resolutionStrategy {
+        force("com.google.auto.value:auto-value:1.6.3")
+        force("com.google.auto.value:auto-value-annotations:1.6.3")
+    }
+}
+
 dependencies {
     implementation("io.coil-kt:coil-compose:2.5.0")
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.6.4")
-    implementation ("com.squareup.okhttp3:logging-interceptor:4.9.3")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.6.4")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.3")
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
     implementation("androidx.compose.runtime:runtime-livedata:1.5.1")
@@ -62,6 +69,7 @@ dependencies {
     // BOM (Bill of Materials)
     implementation(platform("androidx.compose:compose-bom:2023.06.00"))
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.room.compiler.processing.testing)
 
     // Testing
     testImplementation("junit:junit:4.13.2")
@@ -70,6 +78,4 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.5.1")
     debugImplementation("androidx.compose.ui:ui-tooling:1.5.1")
     debugImplementation("androidx.compose.ui:ui-test-manifest:1.5.1")
-
-
 }

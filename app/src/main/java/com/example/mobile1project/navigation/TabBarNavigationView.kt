@@ -1,8 +1,6 @@
 package com.example.mobile1project.navigation
 
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -11,6 +9,7 @@ import androidx.navigation.compose.*
 import com.example.mobile1project.ids.IdsView
 import com.example.mobile1project.ids.imc.views.IMCScreen
 import com.example.mobile1project.firstpartial.FirstPartialView
+import com.example.mobile1project.ids.examen.views.StudentsListView
 import com.example.mobile1project.ids.sum.views.SumView
 import com.example.mobile1project.ids.temp.views.TempScreen
 import com.example.mobile1project.secondpartial.SecondPartialView
@@ -35,7 +34,7 @@ fun TabBarNavigationView(navController: NavHostController = rememberNavControlle
                 val currentRoute = navBackStackEntry?.destination?.route
                 items.forEach { screen ->
                     NavigationBarItem(
-                        icon = { Icon(screen.icon, contentDescription = screen.label) },
+                        icon = { Icon(screen.icon!!, contentDescription = screen.label) },
                         label = { Text(screen.label) },
                         selected = currentRoute == screen.route,
                         onClick = {
@@ -67,8 +66,8 @@ fun TabBarNavigationView(navController: NavHostController = rememberNavControlle
             composable(ScreenNavigation.Sum.route) { SumView() }
             composable(ScreenNavigation.Temp.route) { TempScreen() }
             composable(ScreenNavigation.StudentList.route) { StudentListView(viewModel = StudentViewModel()) }
-            composable(ScreenNavigation.LocationList.route) {LocationListScreen()
-            }
+            composable(ScreenNavigation.LocationList.route) { LocationListScreen() }
+            composable(ScreenNavigation.ExamenList.route) { StudentsListView()}
         }
     }
 }
