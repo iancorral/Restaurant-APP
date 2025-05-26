@@ -37,32 +37,30 @@ android {
     buildFeatures {
         compose = true
     }
-}
 
-configurations.all {
-    resolutionStrategy {
-        force("com.google.auto.value:auto-value:1.6.3")
-        force("com.google.auto.value:auto-value-annotations:1.6.3")
+    // Fix for duplicate resource files
+    packagingOptions {
+        exclude("messages/JavaOptionBundle.properties")
     }
 }
 
 dependencies {
     implementation("io.coil-kt:coil-compose:2.5.0")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.6.4")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.3")
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
     implementation("androidx.compose.runtime:runtime-livedata:1.5.1")
 
     // Jetpack Compose
-    implementation("androidx.compose.material3:material3:1.1.2") // Material 3
+    implementation("androidx.compose.material3:material3:1.1.2")
     implementation("androidx.compose.ui:ui:1.5.1")
     implementation("androidx.compose.ui:ui-tooling-preview:1.5.1")
     implementation("androidx.compose.foundation:foundation:1.5.1")
     implementation("androidx.compose.material:material-icons-extended:1.5.0")
 
-    // Core y Activity Compose
+    // Core & Activity Compose
     implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.activity:activity-compose:1.7.2")
 
@@ -70,6 +68,12 @@ dependencies {
     implementation(platform("androidx.compose:compose-bom:2023.06.00"))
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.room.compiler.processing.testing)
+
+    // Fix for duplicate classes (auto-value vs checker-qual)
+    implementation("com.google.auto.value:auto-value-annotations:1.6.3") {
+        exclude(group = "org.checkerframework", module = "checker-qual")
+    }
+    implementation("org.checkerframework:checker-qual:3.42.0")
 
     // Testing
     testImplementation("junit:junit:4.13.2")

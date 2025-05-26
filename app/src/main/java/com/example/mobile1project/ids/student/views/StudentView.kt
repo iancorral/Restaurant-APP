@@ -10,7 +10,7 @@ import androidx.compose.ui.unit.dp
 import com.example.mobile1project.ids.student.viewmodels.StudentViewModel
 
 @Composable
-fun StudentListView(viewModel: StudentViewModel) {
+fun StudentListExampleView(viewModel: StudentViewModel) {
     val students by viewModel.students.collectAsState()
 
     Column(modifier = Modifier

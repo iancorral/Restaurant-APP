@@ -14,9 +14,10 @@ import com.example.mobile1project.ids.sum.views.SumView
 import com.example.mobile1project.ids.temp.views.TempScreen
 import com.example.mobile1project.secondpartial.SecondPartialView
 import com.example.mobile1project.thirdpartial.ThirdPartialView
-import com.example.mobile1project.ids.student.views.StudentListView
+import com.example.mobile1project.ids.student.views.StudentListExampleView
 import com.example.mobile1project.ids.student.viewmodels.StudentViewModel
 import com.example.mobile1project.ids.location.views.LocationListScreen
+import com.example.mobile1project.ids.student.views.StudentListExampleView
 
 @Composable
 fun TabBarNavigationView(navController: NavHostController = rememberNavController()) {
@@ -65,7 +66,7 @@ fun TabBarNavigationView(navController: NavHostController = rememberNavControlle
             composable(ScreenNavigation.Imc.route) { IMCScreen() }
             composable(ScreenNavigation.Sum.route) { SumView() }
             composable(ScreenNavigation.Temp.route) { TempScreen() }
-            composable(ScreenNavigation.StudentList.route) { StudentListView(viewModel = StudentViewModel()) }
+            composable(ScreenNavigation.StudentList.route) { StudentListExampleView(viewModel = StudentViewModel()) }
             composable(ScreenNavigation.LocationList.route) { LocationListScreen() }
             composable(ScreenNavigation.ExamenList.route) { StudentsListView()}
         }
