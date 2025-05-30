@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.mobile1project"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -18,6 +18,15 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    packagingOptions {
+        exclude("kotlin/internal/internal.kotlin_builtins")
+        exclude("messages/JavaOptionBundle.properties")
+        exclude("META-INF/DEPENDENCIES")
+        exclude("META-INF/LICENSE")
+        exclude("META-INF/LICENSE.txt")
+        exclude("META-INF/NOTICE")
+        exclude("META-INF/NOTICE.txt")
+    }
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -27,16 +36,20 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         jvmTarget = "11"
     }
+
     buildFeatures {
         compose = true
     }
+
 }
 
 configurations.all {
@@ -56,7 +69,7 @@ dependencies {
     implementation("androidx.compose.runtime:runtime-livedata:1.5.1")
 
     // Jetpack Compose
-    implementation("androidx.compose.material3:material3:1.1.2") // Material 3
+    implementation("androidx.compose.material3:material3:1.1.2")
     implementation("androidx.compose.ui:ui:1.5.1")
     implementation("androidx.compose.ui:ui-tooling-preview:1.5.1")
     implementation("androidx.compose.foundation:foundation:1.5.1")
@@ -66,10 +79,17 @@ dependencies {
     implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.activity:activity-compose:1.7.2")
 
-    // BOM (Bill of Materials)
+    // BOM
     implementation(platform("androidx.compose:compose-bom:2023.06.00"))
+
+    // Navigation & Room testing lib
     implementation(libs.androidx.navigation.compose)
-    implementation(libs.androidx.room.compiler.processing.testing)
+
+
+    // AutoValue (si es requerida explícitamente, con exclusión)
+    implementation("com.google.auto.value:auto-value:1.6.3") {
+        exclude(group = "org.checkerframework", module = "checker-qual")
+    }
 
     // Testing
     testImplementation("junit:junit:4.13.2")
